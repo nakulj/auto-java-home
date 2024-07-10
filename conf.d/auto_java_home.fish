@@ -11,7 +11,7 @@ function __auto_set_java_home --on-variable PWD --description "Automatically set
   # Find a .java_home file
   if test -e "$dir/.java_home"
     # back up the java home unless it's been backed up already
-    set -q $OLD_JAVA_HOME; or set -g OLD_JAVA_HOME $JAVA_HOME
+    test $OLD_JAVA_HOME; or set -g OLD_JAVA_HOME $JAVA_HOME
     read -gx JAVA_HOME < "$dir/.java_home"
   else
     # we're leaving a directory controlled by .java_home,
